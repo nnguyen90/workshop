@@ -4,7 +4,7 @@
 The review session on IPC144/BTP100 was held on monday may 13th at 10 AM
 This session was open to all the students who needed to review the 144/100 concepts before starting 244/200 subjects.
 
-[144/100 Review Recrodings](https://github.com/Seneca-244200/OOP244-NAA-ZAA-NFF-Notes/blob/main/README.md#144100-review-recrodings)
+[144/100 Review Recrodings](https://github.com/Seneca-244200/OOP244-NAA-and-NBB-Notes#144100-review-session--for-244200-students)
 
 ## Setting up your computers for OOP244
 
