@@ -512,7 +512,7 @@ The hints below are just guides; you can create a design that accomplishes the t
 
 ## Tester Program
 
-The `main` module and the input files are provided. Read the code and make sure you understand it before attempting to implement anything. **Do not change the existing code.**  If the program is implemented correctly, the output should look like the one from the [`sample_output.txt`](DYI/sample_output.txt) file.
+The `main` module and the input files are provided. Read the code and make sure you understand it before attempting to implement anything. **Do not change the existing code.**  If the program is implemented correctly, the output should look like the one from the [`sample_output.txt`](DIY/sample_output.txt) file.
 
 ## 🗎 Reflection
 
