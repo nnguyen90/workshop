@@ -380,7 +380,7 @@ Postal Code: population
 Population of Canada: 282439
 ```
 
-Implement this program in 3 modules called `popReport`, `File` and `Population` that can accomplish the above task.  
+Implement this program in 2 modules called `File` and `Population` that can accomplish the above task.  
 
 ***You may freely use/copy any logic or code needed from the LAB section!***
 
