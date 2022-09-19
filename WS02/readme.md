@@ -19,8 +19,8 @@ Make sure your microphone is set up and join with the microphone. This is an int
 
 [Click HERE to join the session]()
 
-### Session recordings
-To be posted...
+### Overview session recordings
+- To be posted after the session...
 
 
 
