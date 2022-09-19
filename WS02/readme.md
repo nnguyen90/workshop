@@ -1,6 +1,7 @@
 # Workshop #2: References, Overloading and Dynamic memory allocation
-* Version 0.8<br /> submission is not open yet
-
+* Version 0.9<br /> 
+- 0.8: submission is not open yet
+- 0.9: Overview session scheduled
 
 ## Learning Outcomes
 
@@ -9,6 +10,20 @@ Upon successful completion of this workshop, you will have demonstrated the abil
 - allocate and deallocate dynamic memory;
 - overload functions
 - create and use references
+
+## Workshop Online Overview Session. (Tuesday Sep20th 16:15 to 17:05)
+The overview session will go through the workshop, explaining the steps and answering questions you might have.
+
+The session will be online on BigBlueButton. Click on the link below 5 minutes before the session begins to join the session. 
+Make sure your microphone is set up and join with the microphone. This is an interactive session, avoid "Listen only" connections unless you REALLY have to.
+
+[Click HERE to join the session]()
+
+### Session recordings
+To be posted...
+
+
+
 
 ## Submission Policy
 
