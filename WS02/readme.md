@@ -3,6 +3,7 @@
 - 0.8: submission is not open yet
 - 0.9: Overview session scheduled
 - 1.0: Submission are now open
+- 1.1: changed "asm" name to asmnt, since asm is a reserved word in C.
 ## Learning Outcomes
 
 Upon successful completion of this workshop, you will have demonstrated the abilities to:
@@ -165,10 +166,10 @@ Skips a comma and then reads a cstring no longer than 60 characters from the fpt
 > Use the following format in the fscanf to accomplish this:<br/> `",%60[^\n]\n"`
 
 
-### `bool read(Assessment& asm, FILE* fptr);`
+### `bool read(Assessment& asmnt, FILE* fptr);`
 First it will try to read a double value for the mark and a string for title into a temporary local double variable and a 60 character lone cString (+1 for null).
 
-If the read is successful, it will then allocate a dynamic double and a dynamic cString to the exact size of the read cstring from the file into the fields of the asm structure (asm.m_mark and asm.m_title) and copies the values into them.<br />
+If the read is successful, it will then allocate a dynamic double and a dynamic cString to the exact size of the read cstring from the file into the fields of the asmnt structure (asmnt.m_mark and asmnt.m_title) and copies the values into them.<br />
 In this case, the function will return true, otherwise, it will return false with no memory allocation.
 
 ### `void freeMem(Assessment*& aptr, int size);`
