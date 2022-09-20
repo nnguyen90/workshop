@@ -1,8 +1,8 @@
 # Workshop #2: References, Overloading and Dynamic memory allocation
-* Version 0.9<br /> 
+* Version 1.0<br /> 
 - 0.8: submission is not open yet
 - 0.9: Overview session scheduled
-
+- 1.0: Submission are now open
 ## Learning Outcomes
 
 Upon successful completion of this workshop, you will have demonstrated the abilities to:
@@ -17,7 +17,7 @@ The overview session will go through the workshop, explaining the steps and answ
 The session will be online on BigBlueButton. Click on the link below 5 minutes before the session begins to join the session. 
 Make sure your microphone is set up and join with the microphone. This is an interactive session, avoid "Listen only" connections unless you REALLY have to.
 
-[Click HERE to join the session]()
+[Click HERE to join the session](https://connect.rna2.blindsidenetworks.com/invite/to?c=fFm-opfEavRb6s57mbfsMyK0effDDUyRcDVEKYwW4kY&m=f5fee54f6c569f103d073e94fde7fee76fe07b17&t=1663704681614&u=senecacollege)
 
 ### Overview session recordings
 - To be posted after the session...
