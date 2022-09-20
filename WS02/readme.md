@@ -1,8 +1,9 @@
 # Workshop #2: References, Overloading and Dynamic memory allocation
-* Version 0.9<br /> 
+* Version 1.0<br /> 
 - 0.8: submission is not open yet
 - 0.9: Overview session scheduled
-
+- 1.0: Submission are now open
+- 1.1: changed "asm" name to asmnt, since asm is a reserved word in C.
 ## Learning Outcomes
 
 Upon successful completion of this workshop, you will have demonstrated the abilities to:
@@ -17,11 +18,11 @@ The overview session will go through the workshop, explaining the steps and answ
 The session will be online on BigBlueButton. Click on the link below 5 minutes before the session begins to join the session. 
 Make sure your microphone is set up and join with the microphone. This is an interactive session, avoid "Listen only" connections unless you REALLY have to.
 
-[Click HERE to join the session]()
+[Click HERE to join the session](https://connect.rna2.blindsidenetworks.com/invite/to?c=fFm-opfEavRb6s57mbfsMyK0effDDUyRcDVEKYwW4kY&m=f5fee54f6c569f103d073e94fde7fee76fe07b17&t=1663704681614&u=senecacollege)
 
 ### Overview session recordings
-- To be posted after the session...
-
+- [Part 1](https://youtu.be/aa_Y8OvVnb8)
+- [Part 2](https://youtu.be/NEItXpW4-r8)
 
 
 
@@ -165,10 +166,10 @@ Skips a comma and then reads a cstring no longer than 60 characters from the fpt
 > Use the following format in the fscanf to accomplish this:<br/> `",%60[^\n]\n"`
 
 
-### `bool read(Assessment& asm, FILE* fptr);`
+### `bool read(Assessment& asmnt, FILE* fptr);`
 First it will try to read a double value for the mark and a string for title into a temporary local double variable and a 60 character lone cString (+1 for null).
 
-If the read is successful, it will then allocate a dynamic double and a dynamic cString to the exact size of the read cstring from the file into the fields of the asm structure (asm.m_mark and asm.m_title) and copies the values into them.<br />
+If the read is successful, it will then allocate a dynamic double and a dynamic cString to the exact size of the read cstring from the file into the fields of the asmnt structure (asmnt.m_mark and asmnt.m_title) and copies the values into them.<br />
 In this case, the function will return true, otherwise, it will return false with no memory allocation.
 
 ### `void freeMem(Assessment*& aptr, int size);`
