@@ -21,8 +21,8 @@ Make sure your microphone is set up and join with the microphone. This is an int
 [Click HERE to join the session](https://connect.rna2.blindsidenetworks.com/invite/to?c=fFm-opfEavRb6s57mbfsMyK0effDDUyRcDVEKYwW4kY&m=f5fee54f6c569f103d073e94fde7fee76fe07b17&t=1663704681614&u=senecacollege)
 
 ### Overview session recordings
-- To be posted after the session...
-
+- [Part 1](https://youtu.be/aa_Y8OvVnb8)
+- [Part 2](https://youtu.be/NEItXpW4-r8)
 
 
 
