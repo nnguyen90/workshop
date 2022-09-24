@@ -1,5 +1,6 @@
 # Workshop #3: Member Functions and Privacy
 * version 0.8  Submission is not open yet
+* version 0.81 minor changes to clarify the steps
 
 In this workshop, you will use member functions, privacy, safe empty state and formatting of the output to complete your work.
 
@@ -109,9 +110,9 @@ Your task for part one of workshop 3 is to create a class called "CC" that encap
 ## Attributes
 This class must keep the following information:
 
-- **The cardholder's name:** that is held dynamically in a C string.
-- **CVV**, **expiry month**, and **expiry year**: that are all held in short integers.
-- **Credit card number**: that is held in an unsigned long long integer
+- **The cardholder's name:** that is held dynamically in a C string.  (`char *`)
+- **CVV**, **expiry month**, and **expiry year**: that are all held in short integers. (`short`)
+- **Credit card number**: that is held in an unsigned long long integer (`unsigned long long`)
 
 ## Private methods
 The CC class has the following Private functions:
@@ -165,7 +166,7 @@ First, it will deallocate the cardholder's name and then calls the `set()` to se
 ```C++
 bool isEmpty() const;
 ```
-Returns true if `the card holder name pointer` attribute of the object is `nullptr`, otherwise it will return false.
+Returns if the CC object is in a safe empty state or not; by returning true if the cardholder name pointer attribute of the object is nullptr, otherwise, it will return false.
 
 ```C++
 void set(const char* cc_name, 
@@ -174,49 +175,49 @@ void set(const char* cc_name,
          short m_expMon, 
          short m_expYear);
 ```
-First, it will `cleanUp()` the object. Then if all the arguments are `valid()`, it will dynamically keep a copy of the name in the name attribute and set the rest of the attributes to their corresponding values. 
+First, it will `cleanUp()` the object. Then if all the arguments are valid using `validate()`, it will dynamically keep a copy of the name in the name attribute and set the rest of the attributes to their corresponding values. 
 
 If any of the arguments are invalid, nothing will be set.
 
 ```C++
  bool read();
 ```
-Assuming that the names are not longer than 71 characters, this function will attempt to read all the values from the console in local file scope variables first and if successful, they will be validated and then stored in the object.   
+Assuming that the names are not longer than 71 characters, this function will attempt to read all the values from the console in local (`function scope`) variables first and if successful, they will be validated and then stored in the object.   
 
 The function will return true if the values are stored in the object and false otherwise.
 
 Follow these steps to write this function:
 Create an array of 71 characters for the name and temporary variables for other attributes of the class.
 
-Reading in local function scope variables
-- The function will first call `cleanUp()` to deallocate the previous data. 
+The function will first call `cleanUp()` to deallocate possible previous data allocation and reads the values into local function scope variables as follows:
+
 - Prompt `"Card holder name: "`
-- using `cin.getline()` read 71 characters into the local name cstring.
+- using `cin.getline()` read 71 characters into a local name cstring.
 - if cin has not failed prompt `"Credit card number: "`
-- read the credit card number
+- read the credit card number into a local unsigned long long variable.
 - if cin has not failed prompt `"Card Verification Value (CVV): "`
-- read the CVV number
+- read the CVV number into a local short integer
 - if cin has not failed prompt `"Expiry month and year (MM/YY): "`
-- read the month and year expiry in one line by `cin.ignore()ing` the delimiter between them, you don't need to make sure it is a '/' character. This separator can be any non-digit character to separate the month and year values.
-- if cin has not failed, call the set(name, no, cvv, mon,year) function to set the object
-- if cin has failed, clear it.
+- reads the expiry `month` and `year`  into short integer variables in one line by `cin.ignore()ing` the delimiter between them, you don't need to make sure it is a '/' character. This separator can be any non-digit character to separate the month and year values.
+- check the status of cin to set the object:
+   - if cin has not failed, call the set(name, no, cvv, mon,year) function to set the object
+   - if cin has failed, `clear()` the cin.
 - in any case, flush the keyboard using ignore
-- return false if object `isEmpty()` and true if not.
+- at end return false if object `isEmpty()` and return true if not.
 
 
 
 ```C++
-void display(int row) const;
+void display(int row = 0) const;
 ```
-If the object is empty print `"Invalid Credit Card Record"`;
+If the object `isEmpty()`, print `"Invalid Credit Card Record"`;
 
-If it is not depending on the value of the row being greater than zero or not, print the CC information in a row, or form, format respectively.
+If it is not in a safe empty state, depending on the value of the row being greater than zero or not, print the CC information in a row, or in a form format respectively:
 
 #### if row > 1:
-```text
-|  30 | Homer Simpson                  | 4089 0511 8229 9500 | 815 |  6/30 |
-```
-- All the values have one space between them and the separator bar.
+
+When printing, all the values have one space between them and the separator bar (see example).
+
 - row: right justified in 3 spaces 
 - Name: left justified in 30 spaced
 - Card number: printed using `prnNumber`
@@ -226,7 +227,14 @@ If it is not depending on the value of the row being greater than zero or not, p
 - year: printed as it.
 - newline
 
-#### if row <= 0
+Example:
+```text
+|  30 | Homer Simpson                  | 4089 0511 8229 9500 | 815 |  6/30 |
+```
+> note: using `cout.setf(ios::left)` or `cout.setf(ios::right)`, its a good practice to `unsetf` them after printing the field (ie. `cout.unsetf(ios::left)` or `cout.unsetf(ios::right)`).  This will put `cout` back in its neutral state.
+
+
+#### if row < = 0
 
 Display the CC information in the following way (no formatting, other than the prnNumber function)
 
