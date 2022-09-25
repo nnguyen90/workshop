@@ -2,10 +2,11 @@
 * version 0.8  Submission is not open yet
 * version 0.81 minor changes to clarify the steps
 * version 0.9 Overview Session scheduled and Submissions open.
+* version 0.91 Corrected the Overview Session date
 
 In this workshop, you will use member functions, privacy, safe empty state and formatting of the output to complete your work.
 
-## Workshop Online Overview Session. (Tuesday Sep26th 8:55 - 9:45)
+## Workshop Online Overview Session. (Tuesday Sep27th 8:55 - 9:45)
 The overview session will go through the workshop, explaining the steps and answering questions you might have.
 
 The session will be online on BigBlueButton. Click on the link below 5 minutes before the session begins to join the session. 
