@@ -1,8 +1,22 @@
 # Workshop #3: Member Functions and Privacy
 * version 0.8  Submission is not open yet
 * version 0.81 minor changes to clarify the steps
+* version 0.9 Overview Session scheduled and Submissions open.
 
 In this workshop, you will use member functions, privacy, safe empty state and formatting of the output to complete your work.
+
+## Workshop Online Overview Session. (Tuesday Sep26th 8:55 - 9:45)
+The overview session will go through the workshop, explaining the steps and answering questions you might have.
+
+The session will be online on BigBlueButton. Click on the link below 5 minutes before the session begins to join the session. 
+### No listen only connections please
+Make sure your microphone is set up and join with the microphone. This is an interactive session, avoid "Listen only" connections unless you REALLY have to.
+
+[Click HERE to join the session]()
+
+### Overview session recordings
+TBA
+
 
 ## Learning Outcomes
 
