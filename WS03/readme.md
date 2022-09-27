@@ -8,6 +8,7 @@ In this workshop, you will use member functions, privacy, safe empty state and f
 
 ## Workshop Online Overview Session. (~~Tuesday Sep27th 8:55 - 9:45~~ moved to 16:15 - 17:05)
 Because of health problems the review session is moved.
+
 The overview session will go through the workshop, explaining the steps and answering questions you might have.
 
 The session will be online on BigBlueButton. Click on the link below 5 minutes before the session begins to join the session. 
