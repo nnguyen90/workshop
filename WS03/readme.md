@@ -3,6 +3,7 @@
 * version 0.81 minor changes to clarify the steps
 * version 0.9 Overview Session scheduled and Submissions open.
 * version 0.91 Corrected the Overview Session date
+* version 1.0 changed argument names not to match the attribute names
 
 In this workshop, you will use member functions, privacy, safe empty state and formatting of the output to complete your work.
 
@@ -188,9 +189,9 @@ Returns if the CC object is in a safe empty state or not; by returning true if t
 ```C++
 void set(const char* cc_name, 
          unsigned long long cc_no, 
-         short m_cvv, 
-         short m_expMon, 
-         short m_expYear);
+         short cvv, 
+         short expMon, 
+         short expYear);
 ```
 First, it will `cleanUp()` the object. Then if all the arguments are valid using `validate()`, it will dynamically keep a copy of the name in the name attribute and set the rest of the attributes to their corresponding values. 
 
