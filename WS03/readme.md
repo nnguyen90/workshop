@@ -4,6 +4,7 @@
 * version 0.9 Overview Session scheduled and Submissions open.
 * version 0.91 Corrected the Overview Session date
 * version 1.0 changed argument names not to match the attribute names
+* version 1.1 Overview session corrections
 
 In this workshop, you will use member functions, privacy, safe empty state and formatting of the output to complete your work.
 
@@ -200,7 +201,7 @@ If any of the arguments are invalid, nothing will be set.
 ```C++
  bool read();
 ```
-Assuming that the names are not longer than 71 characters, this function will attempt to read all the values from the console in local (`function scope`) variables first and if successful, they will be validated and then stored in the object.   
+Assuming that the names are not longer than 70 characters, this function will attempt to read all the values from the console in local (`function scope`) variables first and if successful, they will be validated and then stored in the object.   
 
 The function will return true if the values are stored in the object and false otherwise.
 
@@ -232,7 +233,7 @@ If the object `isEmpty()`, print `"Invalid Credit Card Record"`;
 
 If it is not in a safe empty state, depending on the value of the row being greater than zero or not, print the CC information in a row, or in a form format respectively:
 
-#### if row > 1:
+#### if row > 0:
 
 When printing, all the values have one space between them and the separator bar (see example).
 
