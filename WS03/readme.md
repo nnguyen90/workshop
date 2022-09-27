@@ -16,7 +16,7 @@ The session will be online on BigBlueButton. Click on the link below 5 minutes b
 ### No listen only connections please
 Make sure your microphone is set up and join with the microphone. This is an interactive session, avoid "Listen only" connections unless you REALLY have to.
 
-[Click HERE to join the session]()
+[Click HERE to join the session](https://connect.rna2.blindsidenetworks.com/invite/to?c=YMcmr2B1j_Pq3papimNxoGXTQzb-9N3FCGTd-wulnek&m=df35c27d0f1972926dfb207f1c195b8402c73621&t=1664309714067&u=senecacollege)
 
 ### Overview session recordings
 TBA
