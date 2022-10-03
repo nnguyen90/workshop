@@ -275,7 +275,9 @@ Then Extract the 3 values in three local function scope variables:
 - a character Cstring with a length of 70+1 (assuming a name can not be more than 70 chars)
 - an integer for row
 - a character for the seating letter.
+
 in the following format:
+
 - Name   (use getline())
 - comma
 - seat number (use extraction operator)
