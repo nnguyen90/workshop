@@ -9,7 +9,7 @@ The session will be online on BigBlueButton. Click on the link below 5 minutes b
 ### No listen only connections please
 Make sure your microphone is set up and join with the microphone. This is an interactive session, avoid "Listen only" connections unless you REALLY have to.
 
-[Click HERE to join the session]()
+[Click HERE to join the session](https://connect.rna2.blindsidenetworks.com/invite/to?c=rPAbrdZK-4K0uMDK88CBO93C86ec2X4t0eSfUSK5I18&m=df35c27d0f1972926dfb207f1c195b8402c73621&t=1664801551840&u=senecacollege)
 
 
 In this workshop, you will use Constructors,  Destructor and references of the current object to encapsulate a passenger seat in a Boeing 737.
