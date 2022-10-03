@@ -1,5 +1,6 @@
 # Workshop #4: Constructors, Destructors and Current object
 * Version 1.0
+* Version 1.1, corrections during the overview session
 
 ## Workshop Online Overview Session. (Monday Oct 03 8:55 - 9:45)
 The overview session will go through the workshop, explaining the steps and answering questions you might have.
@@ -9,7 +10,7 @@ The session will be online on BigBlueButton. Click on the link below 5 minutes b
 ### No listen only connections please
 Make sure your microphone is set up and join with the microphone. This is an interactive session, avoid "Listen only" connections unless you REALLY have to.
 
-[Click HERE to join the session]()
+[Click HERE to join the session](https://youtu.be/wSwbSvu31_M)
 
 
 In this workshop, you will use Constructors,  Destructor and references of the current object to encapsulate a passenger seat in a Boeing 737.
@@ -137,7 +138,7 @@ Roger Waters, 14A
 ```
 ### Private methods
 ```C++
-bool validate(int row, int letter)const;
+bool validate(int row, char letter)const;
 ```
 Code a private method to return true if the row number and the seating letter, together correctly address a seat in the airplane.
 Validations:
@@ -628,19 +629,20 @@ public:
 
 ## Your Task
 
-CCreate a module/class called TourBus to encapsulate a TourBus carrying passengers for a city tour using a dynamic TourPassenger array.   
+Create a module/class called TourBus to encapsulate a TourBus carrying passengers for a city tour using a dynamic TourPassenger array.   
 
 Your TourBus should come in three sizes: 
 - 4 passenger private tour
 - 16 passengers Mini tour bus
 - 22 passengers Full-size bus. 
+
 Any attempt to create a TourBus with a size different than the above should result in an invalid unusable TourBus.
 
 ### Required Functionalities
 
 - A TourBus should be created using the number of passengers it can carry.
 - A TourBus should be able to return if it is in a valid state using a query method called ```validTour()```;
-- A TourBus Should be able to Board Passengers by issuing them tickets when entering the bus. This should be done using a method called ```board()``` returning the reference of the TourBus Object. Execution sample if this is a private tour with 4 passengers:  
+- A TourBus Should be able to Board Passengers by issuing their tickets when entering the bus. This should be done using a method called ```board()``` returning the reference of the TourBus Object. Execution sample if this is a private tour with 4 passengers:  
 ```text
 Boarding 4 Passengers:
 1/4- Passenger Name: Homer Simspson
@@ -733,7 +735,43 @@ int main() {
 }
 ```
 ## Execution Sample
+```text
+Enter the following data:
+100<ENTER>
+10<ENTER>
+22<ENTER>
+16<ENTER>
+4<ENTER>
+John Doe<ENTER>
+Jane Doe<ENTER>
+Jack Doe<ENTER>
+Jill Doe<ENTER>
+-------------------
+Please enter number of passengers: 100
+Invalid tour bus!
+Please enter number of passengers: 10
+Invalid tour bus!
+Please enter number of passengers: 22
+Cannot start the tour, the bus is not fully boarded!
+Please enter number of passengers: 16
+Cannot start the tour, the bus is not fully boarded!
+Please enter number of passengers: 4
+Boarding 4 Passengers:
+1/4- Passenger Name: John Doe
+2/4- Passenger Name: Jane Doe
+3/4- Passenger Name: Jack Doe
+4/4- Passenger Name: Jill Doe
+Starting the tour....
+Passenger List:
+|Row | Passenger Name                           | Num |
++----+------------------------------------------+-----+
+|  1 | John Doe                                 | 100 |
+|  2 | Jane Doe                                 | 101 |
+|  3 | Jack Doe                                 | 102 |
+|  4 | Jill Doe                                 | 103 |
++----+------------------------------------------+-----+
 
+```
 ## Reflection
 
 Study your final solutions for each deliverable of the workshop, reread the related parts of the course notes, and make sure that you have understood the concepts covered by this workshop.  **This should take no less than 30 minutes of your time and the result is suggested to be at least 150 words in length.**
