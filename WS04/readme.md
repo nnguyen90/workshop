@@ -617,7 +617,7 @@ See [Custom Code Submission](#custom-code-submission) section for more detail
 
 # DIY (50%) 
 
-Having the following fully implemented module/class called "TourTicket". 
+You have been provided the fully implemented module/class called "TourTicket". 
 ```C++
 class TourTicket {
   char m_name[41]; // passenger name
