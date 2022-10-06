@@ -1,6 +1,7 @@
 # Workshop #4: Constructors, Destructors and Current object
 * Version 1.0
 * Version 1.1, corrections during the overview session
+* Version 1.2, Corrected the name TourPassenger to TourTicket.
 
 ## Workshop Online Overview Session. (Monday Oct 03 8:55 - 9:45)
 The overview session will go through the workshop, explaining the steps and answering questions you might have.
@@ -614,15 +615,15 @@ See [Custom Code Submission](#custom-code-submission) section for more detail
 
 # DIY (50%) 
 
-Having the following fully implemented module/class called "TourPassenger". 
+Having the following fully implemented module/class called "TourTicket". 
 ```C++
-class TourPassenger {
-  char m_name[41];
+class TourTicket {
+  char m_name[41]; // passenger name
   int m_ticketNumber;
   void copyName(const char* str);
 public:
-  TourPassenger();
-  TourPassenger& issue(const char* passengerName);
+  TourTicket();
+  TourTicket& issue(const char* passengerName);
   std::ostream& display(std::ostream& coutRef = std::cout)const;
   bool valid()const;
 };
@@ -631,7 +632,7 @@ public:
 
 ## Your Task
 
-Create a module/class called TourBus to encapsulate a TourBus carrying passengers for a city tour using a dynamic TourPassenger array.   
+Create a module/class called TourBus to encapsulate a TourBus carrying passengers for a city tour using a dynamic TourTicket array.   
 
 Your TourBus should come in three sizes: 
 - 4 passenger private tour
