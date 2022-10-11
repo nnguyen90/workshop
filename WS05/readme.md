@@ -702,7 +702,7 @@ X
 60
 60
 ```
-- The sum of a Mark and an integer or another mark will return a mark with the sum of the two values as a result. 
+- The sum of a Mark and an integer or another Mark will return a Mark with the sum of the two values as a result. 
 
 ```C++
    int val = 15;
