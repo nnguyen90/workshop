@@ -1,5 +1,6 @@
 # Workshop #05: Member operators and Helper functions
-* Version 1.0
+* Version 1.1 (synced tester source with the main.cpp [p1] in the repo)
+
 
 In this workshop, you will implement different types of operator overload in partially developed classes.
 
@@ -226,15 +227,16 @@ The value of the rent balance of the right operand (apartment reference) should 
 // OOP244 Workshop 5 p1: tester program
 //
 // File  main.cpp
-// Version 1.0
+// Version 1.1
 // Date  summer of 2022
 // Author  Kalimullah Jawad
-//  
+//
 //
 // Revision History
 // -----------------------------------------------------------
 // Name            Date            Reason
 // Fardad          2022/10/06      peer review
+// Fardad          2022/10/16      synced with the main.cpp in repo
 /////////////////////////////////////////////////////////////////
 ***********************************************************************/
 
@@ -264,45 +266,48 @@ int main() {
     aprtmentsDisplay(mixed, 7);
     cout << "Charging apartment #1 $50.02 using += operator:" << endl;
     aprtmentDisplay(mixed[0] += 50.02);
-    cout << "Transferring $100.01 from apartment #2 using -= operator:" << endl;
+    cout << "Deducting $100.01 from apartment #2 using -= operator:" << endl;
     aprtmentDisplay(mixed[1] -= 100.01);
-    cout << "Transferring extra amount from apartment #4 using -= operator:" << endl;
+    cout << "Deducting $5555.55 from apartment #4 using -= operator (fail):" << endl;
     aprtmentDisplay(mixed[3] -= 5555.55);
-    cout << "Charging and transferring negative amounts on apartment #4:" << endl;
+    cout << "Adding and deducting negative amounts on apartment #4 (fail):" << endl;
     aprtmentDisplay(mixed[3] -= -5.55);
     aprtmentDisplay(mixed[3] += -50.55);
-    cout << "Info on two departments: " << endl;
+    cout << "Displaying first two departments: " << endl;
     aprtmentsDisplay(mixed, 2);
-    cout << "Changing the charges of apartment 1 to 2:" << endl;
+    cout << "Moving the balance of apartment 1 to 2:" << endl;
     mixed[0] >> mixed[1];
     aprtmentsDisplay(mixed, 2);
-    cout << "Changing the charges of aprtment 2 to 1:" << endl;
+    cout << "Moving the balance of apartment 2 to 1:" << endl;
     mixed[0] << mixed[1];
     aprtmentsDisplay(mixed, 2);
-    cout << "Changing charges of an apartment to itself" << endl;
+    cout << "Attempting to move the balance an apartment to itself (fail):" << endl;
     aprtmentDisplay(mixed[0] << mixed[0]);
-    cout << "Combined balance of apartment 5 and 7" << endl << "   in three different ways: ";
-    cout << (value = mixed[4] + mixed[6]) << ", ";
+    cout << "Combined balance of apartment 4 and 7 in three different ways:" <<endl;
+    // 1
+    cout << (value = mixed[3] + mixed[6]) << ", ";
+    // 2
     value = 0;
-    value += mixed[4];
+    value += mixed[3];
     value += mixed[6];
+    // 3
     cout << value << ", and ";
-    value = double(mixed[4]);
+    value = double(mixed[3]);
     value += double(mixed[6]);
     cout << value << endl;
-    cout << "changing the apartment from Apartment #6 to Apartment #7 using operator=:" << endl;
+    cout << "Moving apartments from #1 to #2 using operator=:" << endl;
     cout << "Before: " << endl;
-    aprtmentsDisplay(&mixed[7], 2);
-    mixed[6] = mixed[5];
+    aprtmentsDisplay(mixed, 2);
+    mixed[1] = mixed[0];
     cout << "After: " << endl;
-    aprtmentsDisplay(&mixed[5], 2);
+    aprtmentsDisplay(mixed, 2);
     cout << "Displaying all apartments: " << endl;
     aprtmentsDisplay(mixed, 7);
-    cout << "Changing number of aprtment #7:" << endl;
+    cout << "Changing number of apartment #7:" << endl;
     aprtmentDisplay(mixed[6] = 12121);
     allApartmentsDisplay(mixed, 7);
     balancesDisplay(mixed, 7);
-    cout << "Total of " << emptyApartments(mixed, 7) << " Invalid Apartments" << endl;
+    cout << "Total of " << emptyApartments(mixed, 7) << " empty apartment(s)" << endl;
     return 0;
 }
 
@@ -343,11 +348,10 @@ void balancesDisplay(const Apartment* apt, int num) {
 int emptyApartments(const Apartment* apt, int num) {
    int sum = 0;
    for(int i = 0; i < num; i++) {
-      sum += !apt[i] && !~apt[i];
+      sum += apt[i] && ~apt[i]; 
    }
    return sum;
 }
-```
 ## Execution sample
 The tester program tests all the operator overloads and the output should be as follows:
 ```Text
