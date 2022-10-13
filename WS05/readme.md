@@ -1,5 +1,7 @@
 # Workshop #05: Member operators and Helper functions
 * Version 1.1 (synced tester source with the main.cpp [p1] in the repo)
+* Version 1.2-lab (Corrected the execution sample to the one on matix)<br />
+in (**<< operator** and **>> operator**) requirements, the instruction for apartment number being set to zero is removed.
 
 
 In this workshop, you will implement different types of operator overload in partially developed classes.
@@ -179,7 +181,7 @@ Apartment A(5555, 400.0), Invalid(55555, -10);
    Invalid -= 20.0 // Nothing will happen since apartment is invalid
 ```
 
-- overload the **<< operator** (left shift operator) to move the balance from the right apartment to the left apartment. After this operation, the balance of the left apartment account will be the sum of both the left and right apartment, and the balance of the right apartment account will be zero. The right apartment's number will be set to zero.<br />
+- overload the **<< operator** (left shift operator) to move the balance from the right apartment to the left apartment. After this operation, the balance of the left apartment account will be the sum of both the left and right apartment, and the balance of the right apartment account will be zero. <br />
 The balance of an apartment should not be able to be "moved" to itself and this operation will not affect the account in this situation.<br />
 In any case, a reference of the **current object** (**apartment**) should be returned. 
 ```C++
@@ -190,7 +192,7 @@ Apartment A(5555, 400.0),B(6666, 500.0), Invalid(55555, -10);
    Invalid << A; // Nothing will happen
 ```
 
-- overload the **>> operator** (right shift operator) to move the balance from the left apartment to the right apartment. After this operation, the balance of the right apartment account will be the sum of both the right and left apartment and the balance of the left apartment account will be zero. The left apartment's number will be set to zero.<br />
+- overload the **>> operator** (right shift operator) to move the balance from the left apartment to the right apartment. After this operation, the balance of the right apartment account will be the sum of both the right and left apartment and the balance of the left apartment account will be zero. <br />
 Funds of an Apartment should not be able to be moved to itself and this operation does not affect the Apartment.<br />
 In any case, a reference of the **current object** (**Apartment**) should be returned. 
 ```C++
@@ -352,10 +354,13 @@ int emptyApartments(const Apartment* apt, int num) {
    }
    return sum;
 }
+```
+
 ## Execution sample
+
 The tester program tests all the operator overloads and the output should be as follows:
 ```Text
-Using bool conversion overload and operator ~ to print the apartments
+Using bool conversion overload and operator ~ to print the apartments 
 +-----+------+--------------+
 |ROW# | APT# |    BALANCE   |
 +-----+------+--------------+
@@ -373,19 +378,19 @@ Charging apartment #1 $50.02 using += operator:
 +-----+------+--------------+
 | 001 | 1111 |       162.13 |
 +-----+------+--------------+
-Transferring $100.01 from apartment #2 using -= operator:
+Deducting $100.01 from apartment #2 using -= operator:
 +-----+------+--------------+
 |ROW# | APT# |    BALANCE   |
 +-----+------+--------------+
 | 001 | 2222 |       123.21 |
 +-----+------+--------------+
-Transferring extra amount from apartment #4 using -= operator:
+Deducting $5555.55 from apartment #4 using -= operator (fail):
 +-----+------+--------------+
 |ROW# | APT# |    BALANCE   |
 +-----+------+--------------+
 | 001 | 4444 |      4435.44 |
 +-----+------+--------------+
-Charging and transferring negative amounts on apartment #4:
+Adding and deducting negative amounts on apartment #4 (fail):
 +-----+------+--------------+
 |ROW# | APT# |    BALANCE   |
 +-----+------+--------------+
@@ -396,75 +401,75 @@ Charging and transferring negative amounts on apartment #4:
 +-----+------+--------------+
 | 001 | 4444 |      4435.44 |
 +-----+------+--------------+
-Info on two departments:
+Displaying first two departments: 
 +-----+------+--------------+
 |ROW# | APT# |    BALANCE   |
 +-----+------+--------------+
 | 001 | 1111 |       162.13 |
 | 002 | 2222 |       123.21 |
 +-----+------+--------------+
-Changing the charges of apartment 1 to 2:
+Moving the balance of apartment 1 to 2:
 +-----+------+--------------+
 |ROW# | APT# |    BALANCE   |
 +-----+------+--------------+
 | 001 | 1111 |         0.00 |
 | 002 | 2222 |       285.34 |
 +-----+------+--------------+
-Changing the charges of aprtment 2 to 1:
+Moving the balance of apartment 2 to 1:
 +-----+------+--------------+
 |ROW# | APT# |    BALANCE   |
 +-----+------+--------------+
 | 001 | 1111 |       285.34 |
 | 002 | 2222 |         0.00 |
 +-----+------+--------------+
-Changing charges of an apartment to itself
+Attempting to move the balance an apartment to itself (fail):
 +-----+------+--------------+
 |ROW# | APT# |    BALANCE   |
 +-----+------+--------------+
 | 001 | 1111 |       285.34 |
 +-----+------+--------------+
-Combined balance of apartment 5 and 7
-   in three different ways: 0.00, 788.77, and 788.77
-changing the apartment from Apartment #6 to Apartment #7 using operator=:
-Before:
-+-----+------+--------------+
-|ROW# | APT# |    BALANCE   |
-+-----+------+--------------+
-| 001 | Invld|  Apartment   |
-| 002 | 7777 |       788.77 |
-+-----+------+--------------+
-After:
-+-----+------+--------------+
-|ROW# | APT# |    BALANCE   |
-+-----+------+--------------+
-| 001 | Invld|  Apartment   |
-| 002 | 7777 |       788.77 |
-+-----+------+--------------+
-Displaying all apartments:
+Combined balance of apartment 4 and 7 in three different ways:
+5224.21, 5224.21, and 5224.21
+Moving apartments from #1 to #2 using operator=:
+Before: 
 +-----+------+--------------+
 |ROW# | APT# |    BALANCE   |
 +-----+------+--------------+
 | 001 | 1111 |       285.34 |
 | 002 | 2222 |         0.00 |
++-----+------+--------------+
+After: 
++-----+------+--------------+
+|ROW# | APT# |    BALANCE   |
++-----+------+--------------+
+| 001 | 2222 |         0.00 |
+| 002 | 1111 |       285.34 |
++-----+------+--------------+
+Displaying all apartments: 
++-----+------+--------------+
+|ROW# | APT# |    BALANCE   |
++-----+------+--------------+
+| 001 | 2222 |         0.00 |
+| 002 | 1111 |       285.34 |
 | 003 | Invld|  Apartment   |
 | 004 | 4444 |      4435.44 |
 | 005 | Invld|  Apartment   |
-| 006 | 7777 |       788.77 |
-| 007 | Invld|  Apartment   |
+| 006 | Invld|  Apartment   |
+| 007 | 7777 |       788.77 |
 +-----+------+--------------+
-Changing number of aprtment #7:
+Changing number of apartment #7:
 +-----+------+--------------+
 |ROW# | APT# |    BALANCE   |
 +-----+------+--------------+
-| 001 | 7777 |       788.77 |
+| 001 | Invld|  Apartment   |
 +-----+------+--------------+
-Display numbers of all the apartments
+Display numbers of all the apartments 
  int conversion operator should be implemented
-1111 2222 -1 4444 -1 7777 -1
-Display total income balance:
+2222 1111 -1 4444 -1 -1 -1 
+Display total income balance: 
  double conversion operator should be used
-285.34 0.00 0.00 4435.44 0.00 788.77 0.00
-Total of 3 Invalid Apartments
+0.00 285.34 0.00 4435.44 0.00 0.00 0.00 
+Total of 1 empty apartment(s)
 
 ```
 ## PART 1 Submission
