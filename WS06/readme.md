@@ -151,17 +151,16 @@ If the number of double values in the file is greater than zero it tries to read
 
 ### Copy Constructor (to be implemented by students)
 - Sets the object to the safe empty state
-- Sets the object NOT to be original
+- Sets the object NOT to be original (this will be done in next step)
 - Assigns the current object to the **Numbers** object that is being copied. (calls the Copy Assignment Operator)
 
 
 ### Copy Assignment Operator (to be implemented by students)
+If this is not a self-copy assignment
+
 - deletes the current collection of the double values
 - sets the object to the safe empty state.
 - sets the object not to be original
-
-If this is not a self-copy assignment
-
 - Allocates new memory pointed by m_numbers to the number of the values in the object that is being copied.
 - Copies all the double values in the object that is being copied into the newly allocated memory.
 
