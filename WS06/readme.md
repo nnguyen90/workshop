@@ -152,7 +152,7 @@ If the number of double values in the file is greater than zero it tries to read
 
 ### Copy Constructor (to be implemented by students)
 - Sets the object to the safe empty state
-- Sets the object NOT to be original
+- Sets the object NOT to be original (this will be done in next step)
 - Assigns the current object to the **Numbers** object that is being copied. (calls the Copy Assignment Operator)
 
 
