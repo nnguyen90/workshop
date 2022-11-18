@@ -1,8 +1,13 @@
 # Workshop #9: Derived Classes and Resources
+Version 1.1 - overview session added
+
 
 In this workshop, you are to code/complete two classes:
 - **Text:** A class that can read the contents of a text file into memory and insert it into ostream.
 - **HtmlText**: A **Text** Class that has a title and can insert the text contents of the class into ostream in simple HTML format. 
+
+## Workshop 9 Overview:
+[Watch](https://youtu.be/RwEkFTnTZVY)
 
 ## Learning Outcomes
 
@@ -18,11 +23,29 @@ Upon successful completion of this workshop, you will have demonstrated the abil
 
 The workshop is divided into one coding part and one non-coding part:
 
-- Part 1: worth 100% of the workshop's total mark, is due on **Thursday at 23:59:59** of the week of your scheduled lab.
-- Part 2 (reflection): non-coding part, is due on **Sunday at 23:59:59** of the week of your scheduled lab. The reflection doesn't have marks associated with it but can incur a **penalty of max 40% of the whole workshop's mark** if your professor deems it insufficient (you make your marks from the code, but you can lose some on the reflection).
+- Part 1 (**LAB**): A step-by-step guided workshop, worth 50% of the workshop's total mark
+> Please note that the part 1 section is **not to be started in your first session of the week**. You should start it on your own before the day of your class and join the first session of the week to ask for help and correct your mistakes (if there are any).
+- Part 2 (reflection): non-coding part. The reflection doesn't have marks associated with it but can incur a **penalty of max 40% of the whole workshop's mark** if your professor deems it insufficient (you make your marks from the code, but you can lose some on the reflection).
+## Due Dates
 
-**The code that is submitted late receives 0%.**  
-On Sunday at midnight the submission closes; if the workshop is incomplete when the submission closes (missing at least one of the coding or non-coding parts), **the mark for the entire workshop is 0%**.
+Depending on the section you are enrolled in, the submission due day of the week may shift a day or two. Please choose the "-due" option of the submitter program to see the exact due date of your section:
+
+```bash
+~profname.proflastname/submit 2??/wX/pY -due<ENTER>
+```
+- Replace **??** with your subject code (`00 or 44`)
+- Replace **X** with Workshop number: [`1 to 10`]
+- Replace **Y** with the part number: [`1 or 2`]
+
+### Overall workshop due days
+- day 1: Workshop open for preview<br/>
+  (If you need to check your program with the submitter, you can use `-feedback` option to test the execution without submission)
+- day 2: submission opens for both parts 1 and 2
+- day 5: (end of day) Part 1 due
+- day 8: (end of day) Part 2 due
+- day 9: (end of day) submissions rejected
+
+If at the deadline (end of day 8) the workshop is not complete, there is an extension of **one day** when you can submit the missing parts.  **The code parts that are submitted late receive 0%.**  After this extra day, the submission closes; if the workshop is incomplete when the submission closes (missing at least one of the coding or non-coding parts), **the mark for the entire workshop is 0%**.
 
 ## Citation
 
@@ -48,7 +71,6 @@ If the file contains work that is not yours (you found it online or somebody pro
 
 If you have helped someone with your code. Let them know of these regulations and in your 'reflect.txt' of part 2 (DIY), write exactly which part of your code was copied and who was the recipient of this code.<br />By doing this you will be clear of any wrongdoing if the recipient of the code does not honour these regulations.
 
-
 ## Compiling and Testing Your Program
 
 All your code should be compiled using this command on `matrix`:
@@ -62,16 +84,24 @@ g++ -Wall -std=c++11 -g -o ws file1.cpp file2.cpp ...
 - `-g`: the executable file will contain debugging symbols, allowing *valgrind* to create better reports
 - `-o ws`: the compiled application will be named `ws`
 
-After compiling and testing your code, run your program as following to check for possible memory leaks (assuming your executable name is `ws`):
+After compiling and testing your code, run your program as follows to check for possible memory leaks (assuming your executable name is `ws`):
 
 ```bash
-valgrind -s --leak-check=full ws
+valgrind --show-error-list=yes --leak-check=full --show-leak-kinds=all --track-origins=yes ws
 ```
+
+- `--show-error-list=yes`: show the list of detected errors
+- `--leak-check=full`: check for all types of memory problems
+- `--show-leak-kinds=all`: show all types of memory leaks identified (enabled by the previous flag)
+- `--track-origins=yes`: tracks the origin of uninitialized values (`g++` must use `-g` flag for compilation, so the information displayed here is meaningful).
 
 To check the output, use a program that can compare text files.  Search online for such a program for your platform, or use *diff* available on `matrix`.
 
-> Note: All the code written in workshops and the project must be implemented in the **sdds** namespace.
+> Note: All the code written in workshops and the project must be implemented in the **sdds** namespace, unless instructed otherwise.
 
+### Custom code submission
+
+If you have any additional custom code, (i.e. functions, classes etc) that you want to reuse in the workshop save them under a module called Utils (`Utils.cpp and Utils.h`) and submit them with your workshop using the instructions in the "[Submitting Utils Module](#submitting-utils-module)" section.
 
 # Lab (Part 1, 100%)
 
@@ -140,7 +170,7 @@ To be able to allocate dynamic memory and read the content of a file into the me
 The following function returns the number of bytes in an istream object or the value zero if the stream is in an invalid state.
 
 ```C++
-   unsigned Utils::getFileLength(istream& is) const {
+   unsigned getFileLength(istream& is) {
       unsigned len{};
       if (is) {
          // save the current read position
@@ -343,17 +373,9 @@ HtmlText.cpp
 main.cpp
 ```
 
-#### Custom code submission
-
-If you have any additional custom code, (i.e. functions, classes etc) that you want to reuse in this workshop save them under a module called Utils (`Utils.cpp and Utils.h`) and submit them with your workshop using the instructions in the "[Submitting Utils Module](#submitting-utils-module)" section.
-
-### Data Entry
-
-Follow the instructions in the tester program
-
 ### Submission Process:
 
-Upload your the files listed above to your `matrix` account. Compile and run your code using the `g++` compiler as shown in [Compiling and Testing Your Program](#compiling-and-testing-your-program) and make sure that everything works properly.
+Upload the files listed above to your `matrix` account. Compile and run your code using the `g++` compiler as shown in [Compiling and Testing Your Program](#compiling-and-testing-your-program) and make sure that everything works properly.
 
 Then, run the following command from your account
 - replace `profname.proflastname` with your professor’s Seneca userid
@@ -366,14 +388,13 @@ Then, run the following command from your account
 and follow the instructions.
 
 #### Submitting Utils Module
-To have your Utils module compiled with your workshop and submitted, add a **u** to the part number of your workshop (i.e **u**p1 for part one and **u**p2 for part two) and issue the following submission command instead of the above:
+To have your custom Utils module compiled with your workshop and submitted, add a **u** to the part number of your workshop (i.e **u**p1 for part one and **u**p2 for part two) and issue the following submission command instead of the above:
 ```text
 ~profname.proflastname/submit 2??/w#/upX
 ```
 See [Custom Code Submission](#custom-code-submission) section for more detail
 
 > **⚠️Important:** Please note that a successful submission does not guarantee full credit for this workshop. If the professor is not satisfied with your implementation, your professor may ask you to resubmit. Re-submissions will attract a penalty.
-
 
 
 
