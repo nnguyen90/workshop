@@ -57,7 +57,7 @@ namespace sdds
         short expMon,
         short expYear) {
         this->cleanUp();
-        if (validate) {
+        if (validate(cc_name, cc_no, cvv, expMon, expYear)) {
             name = new char (strlen(cc_name) + 1);
             sdds::strcpy (name, cc_name);
             cardNo = cc_no;
@@ -68,17 +68,52 @@ namespace sdds
     };
 
     bool CC::read() {
+        char cc_name[71];
+        unsigned long long cc_cardNo;
+        short cc_cvv, cc_expMon, cc_expYear;
+        unsigned long long cc_cardNo;
         cleanUp();
         cout << "Card holder name: ";
-        cin.getline(name, 71, '\n');
+        cin.getline(cc_name, 71, '\n');
         if (!cin.fail()) {
             cout << "Credit card number: ";
-            cin >> cardNo;
-
-
+            cin >> cc_cardNo;
+            cin.ignore();
+            if (!cin.fail()) {
+                cout << "Card Verification Value (CVV): ";
+                cin >> cc_cvv;
+                cin.ignore();
+                if (!cin.fail()) {
+                    cout << "Expiry month and year (MM/YY): ";
+                    cin >> cc_expMon;
+                    cin.ignore();
+                    if (!cin.fail()) {
+                        cin >> cc_expYear;
+                        cin.ignore();
+                        if (!cin.fail()) {
+                            set (cc_name, cc_cardNo, cc_cvv, cc_expMon, cc_expYear);
+                        }
+                        else {
+                            cin.clear();
+                        }
+                    }
+                    else {
+                        cin.clear();
+                    }
+                }
+                else {
+                    cin.clear();
+                }
+            }
+            else {
+                cin.clear();
+            }
+        }
+        else {
+            cin.clear();
         }
     };
-    void CC::display(int row = 0) const {
+    void CC::display(int row) const {
         if (this->isEmpty()) {
             cout << "Invalid Credit Card Record" << endl;
         }
@@ -99,10 +134,13 @@ namespace sdds
 
                 cout << " | ";
                 
+                char des[31];
+                strcpy(des, name, 30);
+
                 cout.width(30);
                 cout.fill(' ');
                 cout.setf(ios::left);
-                cout << name;
+                cout << des;
                 cout.unsetf(ios::left);
 
                 cout << " | ";
@@ -117,7 +155,8 @@ namespace sdds
                 cout << expMon << "/" << expYear;
                 cout.unsetf(ios::right);
 
-                cout << " | ";
+                cout << " | " << endl;
+                
                 
 
             }
