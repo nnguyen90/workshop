@@ -16,6 +16,7 @@
 ***********************************************************************/
 #ifndef SDDS_UTILS_H_
 #define SDDS_UTILS_H_
+#include <string>
 namespace sdds {
    int strlen(const char* str);
    // copies up to len chars from src to des

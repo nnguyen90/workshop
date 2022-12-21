@@ -18,7 +18,7 @@
 #include "File.h"
 
 namespace sdds {
-   FILE* fptr;
+   FILE* fptr; 
    // Opens a file and keeps the file pointer in the File.cpp (file scope)
    bool openFile(const char filename[]) {
       fptr = fopen(filename, "r");

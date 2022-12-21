@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{90bbc603-8e89-4d33-be56-17847f854d45}</ProjectGuid>
-    <RootNamespace>DIY</RootNamespace>
+    <ProjectGuid>{f5a9ecb7-5c60-47ac-9517-411af99e0880}</ProjectGuid>
+    <RootNamespace>w1p2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,14 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Item.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\w1p2.cpp" />
+    <ClCompile Include="Dictionary.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Item.h" />
+    <Text Include="..\dictionary.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="items.txt" />
+    <ClInclude Include="Dictionary.h" />
+    <ClInclude Include="Word.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

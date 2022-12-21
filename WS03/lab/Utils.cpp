@@ -1,4 +1,18 @@
+/*
+*****************************************************************************
+                          Workshop - #3 (P1)
+Full Name     : Ngoc Diem Thy Nguyen
+Student ID#   : 105310221
+Email         : nnguyen90@myseneca.ca
+Section       : NFF
+Completed date: Sep 29, 2022
+Authenticity Declaration:
+I have done all the coding by myself and only copied the code that my
+professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
 #include "Utils.h"
+
 namespace sdds {
    int strlen(const char* str) {
       int len = 0;

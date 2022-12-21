@@ -127,13 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\StudentHelp\Erin\OOP244-Works\Workshops\WS02-Part1\Utils.h" />
     <ClInclude Include="CC.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\StudentHelp\Erin\OOP244-Works\Workshops\WS02-Part1\Utils.cpp" />
     <ClCompile Include="CC.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cc.csv" />
