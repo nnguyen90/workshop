@@ -30,7 +30,7 @@ namespace sdds
         int first = temp % 10000;
         temp = temp / 10000;
 
-        cout << first << " " << second << " " << third << " " << forth << endl;
+        cout << first << " " << second << " " << third << " " << forth;
 
     };
 
@@ -88,6 +88,38 @@ namespace sdds
                 cout << "Creditcard No: " << cardNo << endl;
                 cout << "Card Verification Value: " << cvv<< endl;
                 cout << "Expiry Date: " << expMon << "/" << expYear << endl;
+            }
+            else {
+                cout << "| ";
+                cout.width(3);
+                cout.fill(' ');
+                cout.setf(ios::right);
+                cout << row;
+                cout.unsetf(ios::right);
+
+                cout << " | ";
+                
+                cout.width(30);
+                cout.fill(' ');
+                cout.setf(ios::left);
+                cout << name;
+                cout.unsetf(ios::left);
+
+                cout << " | ";
+                prnNumber();
+                cout << " | ";
+                cout << cvv;
+                cout << " | ";
+
+                cout.width(2);
+                cout.fill(' ');
+                cout.setf(ios::right);
+                cout << expMon << "/" << expYear;
+                cout.unsetf(ios::right);
+
+                cout << " | ";
+                
+
             }
         }
 
