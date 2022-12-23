@@ -1,13 +1,12 @@
-#include <iostream>
-
 #ifndef SDDS_SEAT_H_
 #define SDDS_SEAT_H_
+#include <iostream>
 
 namespace sdds {
    class Seat {
-	   char* name;
-	   int m_row;
-	   char m_letter;
+	   char* name = nullptr;
+	   int m_row = 0;
+	   char m_letter = 0;
 
 	   bool validate(int row, char letter)const;
 	   Seat& alAndCp(const char* str);

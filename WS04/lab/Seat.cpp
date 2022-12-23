@@ -18,7 +18,7 @@ namespace sdds {
 				}
 			}
 			else {
-				if ('A' <= letter && letter >= 'F')
+				if ('A' <= letter && letter <= 'F')
 					ok = true;
 			}
 		}
@@ -30,11 +30,18 @@ namespace sdds {
 
 	Seat& Seat::alAndCp(const char* str) {
 		name = nullptr;
-		if (str != nullptr && str[0] != 0){	
-			name = new char [strlen(str) + 1];
-			strcpy (name, str);
+		reset();
+		if (str != nullptr && str[0] != 0) {
+			if ((int)strlen(str) > 70) {
+				name = new char[71];
+				strncpy(name, str, 70);
+			}
+			else {
+				name = new char[strlen(str) + 1];
+				strcpy(name, str);
+			}	
 		}
-		else {
+		else {		
 			reset();
 		}
 		return *this;
@@ -102,17 +109,16 @@ namespace sdds {
 	std::ostream& Seat::display(std::ostream& coutRef)const {
 		char* temp = nullptr;
 		//int len = strlen(name);
-		if (name == nullptr || strlen(name) == 0) {
-			coutRef << "Invalid Seat!" << endl;
+		if (name == nullptr ) {
+			coutRef << "Invalid Seat!";
 		}
 		else {
-			int len = strlen(name);
-			if (len > 40) {
+			if (strlen(name) > 40) {
 				temp = new char[41];
 				strncpy(temp, name, 40);
 			}
 			else {
-				temp = new char[len + 1];
+				temp = new char[strlen(name) + 1];
 				strcpy(temp, name);
 			}
 			coutRef.width(40);
@@ -120,6 +126,7 @@ namespace sdds {
 			coutRef.setf(ios::left);
 			coutRef << temp << " ";
 			coutRef.unsetf(ios::left);
+			coutRef.fill(' ');
 			delete [] temp;
 			temp = nullptr;
 
