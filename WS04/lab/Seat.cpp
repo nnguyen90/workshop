@@ -99,6 +99,52 @@ namespace sdds {
 	const char* Seat::passenger()const {
 		return (this->name);
 	};
-	std::ostream& display(std::ostream& coutRef = std::cout)const;
-	std::istream& read(std::istream& cinRef = std::cin);
+	std::ostream& Seat::display(std::ostream& coutRef)const {
+		char* temp = nullptr;
+		int len = strlen(name);
+		if (name == nullptr || len == 0) {
+			coutRef << "Invalid Seat!" << endl;
+		}
+		else {
+			if (len > 40) {
+				temp = new char[41];
+				strncpy(temp, name, 40);
+			}
+			else {
+				temp = new char[len + 1];
+				strcpy(temp, name);
+			}
+			coutRef.width(40);
+			coutRef.fill('.');
+			coutRef.setf(ios::left);
+			coutRef << temp << " ";
+			coutRef.unsetf(ios::left);
+
+			if (!validate(m_row, m_letter)) {
+				coutRef << "___" << endl;
+
+			}
+			else {
+				coutRef << this->m_row << this->m_letter << endl;
+			}
+		}
+		return coutRef;
+	};
+	std::istream& Seat::read(std::istream& cinRef) {
+		reset();
+		char name[71];
+		int row;
+		char letter;
+		cinRef.getline(name, 70, ',');
+		cinRef.ignore (1000, '\n');
+		cinRef >> row;
+		cinRef.ignore(1000, '\n');
+		cinRef >> letter;
+		cinRef.ignore(1000, '\n');
+		if (!cinRef.fail()) {
+			alAndCp(name);
+			set (row,letter);
+		}
+		return cinRef;
+	};
 }
