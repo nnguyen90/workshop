@@ -29,8 +29,8 @@ namespace sdds {
 	};
 
 	Seat& Seat::alAndCp(const char* str) {
-		if (str != nullptr && str[0] != 0){
-			name = nullptr;
+		name = nullptr;
+		if (str != nullptr && str[0] != 0){	
 			name = new char [strlen(str) + 1];
 			strcpy (name, str);
 		}
@@ -70,8 +70,7 @@ namespace sdds {
 
 	Seat::Seat(const char* passengerName, int row, char letter) {
 		alAndCp(passengerName);
-		validate(row, letter);
-
+		set(row, letter);
 	};
 
 	Seat::~Seat() {
