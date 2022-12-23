@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <fstream>
-#include <string>
+#include <cstring>
 #include "Seat.h"
 
 
@@ -101,11 +101,12 @@ namespace sdds {
 	};
 	std::ostream& Seat::display(std::ostream& coutRef)const {
 		char* temp = nullptr;
-		int len = strlen(name);
-		if (name == nullptr || len == 0) {
+		//int len = strlen(name);
+		if (name == nullptr || strlen(name) == 0) {
 			coutRef << "Invalid Seat!" << endl;
 		}
 		else {
+			int len = strlen(name);
 			if (len > 40) {
 				temp = new char[41];
 				strncpy(temp, name, 40);
@@ -119,13 +120,15 @@ namespace sdds {
 			coutRef.setf(ios::left);
 			coutRef << temp << " ";
 			coutRef.unsetf(ios::left);
+			delete [] temp;
+			temp = nullptr;
 
 			if (!validate(m_row, m_letter)) {
-				coutRef << "___" << endl;
+				coutRef << "___";
 
 			}
 			else {
-				coutRef << this->m_row << this->m_letter << endl;
+				coutRef << this->m_row << this->m_letter;
 			}
 		}
 		return coutRef;
@@ -135,10 +138,8 @@ namespace sdds {
 		char name[71];
 		int row;
 		char letter;
-		cinRef.getline(name, 70, ',');
-		cinRef.ignore (1000, '\n');
+		cinRef.getline(name, 71, ',');
 		cinRef >> row;
-		cinRef.ignore(1000, '\n');
 		cinRef >> letter;
 		cinRef.ignore(1000, '\n');
 		if (!cinRef.fail()) {
