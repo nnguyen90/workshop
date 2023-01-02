@@ -26,7 +26,7 @@ namespace sdds
     }
 
     Numbers::Numbers(const Numbers& N) {
-        int len = strlen(N.m_filename);
+        int len = (int)strlen(N.m_filename);
         this->setEmpty();
         m_isOriginal = false;
         this->m_numCount = N.m_numCount;
@@ -39,7 +39,7 @@ namespace sdds
     };
 
     Numbers& Numbers::operator = (const Numbers& N) {
-        int len = strlen(N.m_filename);
+        int len = (int)strlen(N.m_filename);
         if (this != &N) {
             this->deallocate();
             this->setEmpty();
@@ -135,6 +135,7 @@ namespace sdds
                 // 0 <= i+1 <= n-1 => -1 <= i <= n-2  => i < n-1
             }
         }
+        return *this;
     };
 
 
@@ -154,12 +155,12 @@ namespace sdds
         ifstream file(m_filename);
         int count = 0;
         if (file.is_open()) {
-            char c;
+            double temp;
             while (!file.eof()) {
-                file >> c;
-                if (c == '\n') {
+                file >> temp;
+                if (!file.fail()) {
                     count++;
-                }
+                }          
             }
         }
         file.close();
@@ -187,7 +188,7 @@ namespace sdds
             ofstream file(m_filename);
             if (file) {
                 for (int i = 0; i < this->m_numCount; i++) {
-                    file << m_numbers[i] << endl;
+                    file << fixed << setprecision(2) << m_numbers[i] << endl;
                 }
             }
             file.close();
@@ -208,35 +209,39 @@ namespace sdds
 
     std::ostream& Numbers::display(std::ostream& ostr) const {
         if (this->isEmpty()) {
+            ostr << "Empty list";
         }
         else {
             ostr << "=========================" << endl;
             if (this->m_isOriginal) {
                 ostr << m_filename << endl;
+
             }
             else {
                 ostr << "*** COPY ***" << endl;
-                for (int i = 0; i < m_numCount; i++) {
-                    ostr << m_numbers << ", ";
-                }
-                ostr << endl;
-                ostr << "-------------------------" << endl;
-                ostr << "Total of" << m_numCount << " number(s)" << endl;
-                ostr << "Largest number: " << fixed << setprecision(2) << max();
-                ostr << "Smallest number: " << fixed << setprecision(2) << min();
-                ostr << "Average: " << fixed << setprecision(2) << average();
-                ostr << "=========================";
             }
-        }
+            for (int i = 0; i < m_numCount - 1; i++) {
+                ostr << fixed << setprecision(2) << m_numbers[i] << ", ";
+            }
+            ostr << fixed << setprecision(2) << m_numbers[m_numCount - 1];
+            ostr << endl;
+            ostr << "-------------------------" << endl;
+            ostr << "Total of " << m_numCount << " number(s)" << endl;
+            ostr << "Largest number:  " << fixed << setprecision(2) << max() << endl;
+            ostr << "Smallest number: " << fixed << setprecision(2) << min() << endl;
+            ostr << "Average:         " << fixed << setprecision(2) << average() << endl;
+            ostr << "=========================";
+            }
+        
         return ostr;
     };
 
 
-    ostream& operator<<(ostream& os, const Numbers& N) {
+    std::ostream& operator<<(std::ostream& os, const Numbers& N) {
         return N.display(os);
     };
 
-    istream& operator>>(istream& istr, Numbers& N) {
+    std::istream& operator>>(std::istream& istr, Numbers& N) {
         double temp;
         istr >> temp;
         if (!istr.fail()) {

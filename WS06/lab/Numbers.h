@@ -17,7 +17,7 @@ namespace sdds {
       Numbers(const char* filename); 
       Numbers(const Numbers& N);
       Numbers& operator = (const Numbers& N);
-      Numbers operator-()const;
+     
       Numbers operator-()const;
       Numbers operator+()const;
 
@@ -26,7 +26,7 @@ namespace sdds {
       double min()const;
       ~Numbers();
 
-      Numbers& sort();
+      Numbers& sort(bool ascending);
       int numberCount() const;
       bool load();
       void save();
@@ -35,8 +35,8 @@ namespace sdds {
 
    };
 
-   ostream& operator<<(ostream& os, const Numbers& N);
-   istream& operator>>(istream& istr, Numbers& N);
+   std::ostream& operator<<(std::ostream& os, const Numbers& N);
+   std::istream& operator>>(std::istream& istr, Numbers& N);
 
 
 }
