@@ -3,10 +3,10 @@
 #include <cstring>
 #include <fstream>
 #include "Numbers.h"
+#include <iomanip>
 using namespace std;
 namespace sdds
 {
-
 
     Numbers::Numbers() {
         setEmpty();
@@ -113,17 +113,41 @@ namespace sdds
         return maxVal;
     }
 
-    Numbers& Numbers::sort() {
-        
+    Numbers& Numbers::sort(bool ascending) {
+        bool check = true;
+        while (check) {
+            check = false;
+            for (int i = 0; i <= m_numCount - 2; i++) {
+                if (ascending) {
+                    if (m_numbers[i] > m_numbers[i + 1]) {
+                        swap(m_numbers[i], m_numbers[i + 1]);
+                        check = true;
+                    }
+                }
+                else {
+                    if (m_numbers[i] < m_numbers[i + 1]) {
+                        swap(m_numbers[i], m_numbers[i + 1]);
+                        check = true;
+                    }
+                }
+                // n = m_numcount
+                // 0 <= i <= n-1
+                // 0 <= i+1 <= n-1 => -1 <= i <= n-2  => i < n-1
+            }
+        }
     };
 
 
     Numbers Numbers::operator-()const {
-
+       Numbers N =  *this;
+       N.sort(false);
+       return N;
     }
 
     Numbers Numbers::operator+()const {
-
+        Numbers N = *this;
+        N.sort(true);
+        return N;
     }
 
     int Numbers::numberCount() const {
@@ -198,9 +222,9 @@ namespace sdds
                 ostr << endl;
                 ostr << "-------------------------" << endl;
                 ostr << "Total of" << m_numCount << " number(s)" << endl;
-                ostr << "Largest number: " << ;
-                ostr << "Smallest number: " << ;
-                ostr << "Average: " << ;
+                ostr << "Largest number: " << fixed << setprecision(2) << max();
+                ostr << "Smallest number: " << fixed << setprecision(2) << min();
+                ostr << "Average: " << fixed << setprecision(2) << average();
                 ostr << "=========================";
             }
         }
@@ -209,12 +233,16 @@ namespace sdds
 
 
     ostream& operator<<(ostream& os, const Numbers& N) {
-        return os << N;
+        return N.display(os);
     };
 
     istream& operator>>(istream& istr, Numbers& N) {
-
-
+        double temp;
+        istr >> temp;
+        if (!istr.fail()) {
+            N += temp;
+        }
+        return istr;
     };
 
 }
