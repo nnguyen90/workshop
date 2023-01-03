@@ -184,7 +184,7 @@ namespace sdds
 
 
     void Numbers::save() {
-        if (this->m_isOriginal = true && !(this->isEmpty())) {
+        if (this->m_isOriginal == true && !(this->isEmpty())) {
             ofstream file(m_filename);
             if (file) {
                 for (int i = 0; i < this->m_numCount; i++) {
