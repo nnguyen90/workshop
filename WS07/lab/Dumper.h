@@ -18,14 +18,14 @@ namespace sdds
 
 	public:
 		Dumper();
-		Dumper(char* license, int year, double capacity, char* address);
+		Dumper(const char* license, int year, double capacity, const char* address);
 		bool loaddCargo(double cargo);
 		bool unloadCargo();
 		std::ostream& write(std::ostream& os);
 		std::istream& read(std::istream& in);
 
 	};
-	std::ostream& operator << (std::ostream& os, const Dumper& D);
+	std::ostream& operator << (std::ostream& os, Dumper& D);
 	std::istream& operator >> (std::istream& is, Dumper& D);
 	
 	

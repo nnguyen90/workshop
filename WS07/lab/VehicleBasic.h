@@ -16,13 +16,13 @@ namespace sdds
 
 	class VehicleBasic
 	{
-		char m_license[MAX_LICENSE_LEN] = {};
-		char m_address[MAX_ADDRESS_LEN] = {};
-		int m_year = 0;
+		char m_license[MAX_LICENSE_LEN] {};
+		char m_address[MAX_ADDRESS_LEN] {};
+		int m_year ;
 
 	public:
 		VehicleBasic();
-		VehicleBasic(char* license, int year);
+		VehicleBasic(const char* license, int year);
 		void NewAddress(const char* address);
 		std::ostream& write(std::ostream& os);
 		std::istream& read(std::istream& in);

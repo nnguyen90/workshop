@@ -20,7 +20,7 @@ namespace sdds
 		m_address[0] = '\0';
 		m_year = 0;
 	};
-	VehicleBasic::VehicleBasic(char* license, int year) {
+	VehicleBasic::VehicleBasic(const char* license, int year) {
 		strcpy(m_license, license);
 		m_year = year;
 		strcpy (m_address, "Factory");
@@ -28,7 +28,7 @@ namespace sdds
 	};
 
 	void VehicleBasic::NewAddress(const char* address) {
-		if (this->m_address != address) {
+		if (strcmp(this->m_address,address) != 0) {
 	
 			cout << "|";
 			cout.width(8);
@@ -44,7 +44,6 @@ namespace sdds
 			cout.unsetf(ios::right);
 			cout << " ---> ";
 
-			delete[] m_address;
 			strcpy(m_address, address);
 
 			cout.width(20);
@@ -64,15 +63,29 @@ namespace sdds
 	std::istream& VehicleBasic::read(std::istream& in) {
 		cout << "Built year: ";
 		in >> m_year;
-		in.clear();
+		if (in.fail()) {
+			in.clear();
+			in.ignore(1000, '\n');
+
+		}
+
 		in.ignore(1000, '\n');
 		cout << "License plate: ";
 		in >> m_license;
-		in.clear();
+		if (in.fail()) {
+			in.clear();
+			in.ignore(1000, '\n');
+		}
+
 		in.ignore(1000, '\n');
 		cout << "Current location: ";
-		in >> m_address;
-		in.clear();
+		//in >> m_address;
+		in.getline (m_address, 64, '\n');
+		if (in.fail()) {
+			in.clear();
+			in.ignore(1000, '\n');
+		}
+		
 		in.ignore(1000, '\n');
 		return in;
 	};
