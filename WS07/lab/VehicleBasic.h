@@ -28,7 +28,7 @@ namespace sdds
 		std::istream& read(std::istream& in);
 	
 	};
-	std::ostream& operator << (std::ostream& os, VehicleBasic& V);
+	std::ostream& operator << (std::ostream& os, VehicleBasic V);
 	std::istream& operator >> (std::istream& is, VehicleBasic& V);
 
 }

@@ -85,12 +85,10 @@ namespace sdds
 			in.clear();
 			in.ignore(1000, '\n');
 		}
-		
-		in.ignore(1000, '\n');
 		return in;
 	};
 	
-	std::ostream& operator << (std::ostream& os, VehicleBasic& V) {
+	std::ostream& operator << (std::ostream& os, VehicleBasic V) {
 		V.write(os);
 		return os;
 	};

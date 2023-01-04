@@ -13,8 +13,8 @@ Section:
 namespace sdds
 {
 	class Dumper: public VehicleBasic {
-		double m_capacity;
-		double m_load; 
+		double m_capacity = 0.0;
+		double m_load = 0.0; 
 
 	public:
 		Dumper();

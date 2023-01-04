@@ -9,6 +9,7 @@ Section:
 #include "Dumper.h"
 #include "VehicleBasic.h"
 
+using namespace std;
 namespace sdds
 {
 	
@@ -46,12 +47,13 @@ namespace sdds
 		return ok;
 	};
 	std::ostream& Dumper::write(std::ostream& os) {
-		this->write(os);
+		VehicleBasic::write(os);
 		os << " | " << m_load << "/" << m_capacity;
 		return os;
 	};
+
 	std::istream& Dumper::read(std::istream& in) {
-		this->read(in);
+		VehicleBasic::read(in);
 		std::cout << "Capacity: ";
 		in >> m_capacity;
 		if (in.fail()) {
