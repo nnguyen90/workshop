@@ -9,8 +9,11 @@
 using namespace std;
 namespace sdds
 {
-	char LblShape::label() const {
-		return *m_label;
+	const char* LblShape::label() const {
+		return m_label;
+	};
+	LblShape::LblShape() {
+		m_label = nullptr;
 	};
 
 	LblShape::LblShape(const char* label) {

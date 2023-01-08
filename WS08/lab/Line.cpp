@@ -13,9 +13,20 @@ namespace sdds
 		m_length = length;
 	};
 
-	void Line::draw(std::ostream& os) {};
-	void Line::getSpecs(std::istream& is)]{
-		LblShape:getSpecs();
+	void Line::draw(std::ostream& os) {
+		if (m_length > 0.0 && label() != nullptr) {
+			os.width(40);
+			os.fill('=');
+			os.setf(ios::left);
+			os << label();
+			os.unsetf(ios::left);
+		}
+	};
+
+	void Line::getSpecs(std::istream& is){
+		LblShape::getSpecs(is);
+		is >> m_length;
+		is.ignore(1000, '\n');
 	};
 	Line::~Line() {};
 }
