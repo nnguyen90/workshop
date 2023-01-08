@@ -9,13 +9,13 @@ namespace sdds
 	{
 		char* m_label = nullptr;
 	protected:
-		char label() const;
+		const char* label() const;
 	public:
 		LblShape();
 		LblShape(const char* label);
 		LblShape(LblShape& L) = delete;
 		LblShape& operator = (LblShape& L) = delete;
-		virtual void draw(std::ostream& os) = 0;
+		//virtual void draw(std::ostream& os) = 0;
 		void getSpecs(std::istream& is);
 		~LblShape();
 	};

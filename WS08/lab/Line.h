@@ -11,8 +11,8 @@ namespace sdds
 
 		Line();
 		Line(double length, char* label);
-		void draw(std::ostream& os) = 0;
-		void getSpecs(std::istream& is) = 0;
+		void draw(std::ostream& os);
+		void getSpecs(std::istream& is);
 		~Line();
 	};
 	std::ostream& operator << (std::ostream& os, Shape& S);
