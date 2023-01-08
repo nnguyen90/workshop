@@ -19,9 +19,7 @@ namespace sdds
 		void getSpecs(std::istream& is);
 		~LblShape();
 	};
-	std::ostream& operator << (std::ostream& os, LblShape& S);
-	std::istream& operator >> (std::istream& os, LblShape& S);
-
+	
 }
 
 

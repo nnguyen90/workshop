@@ -30,7 +30,7 @@ namespace sdds
 
 	void LblShape::getSpecs(std::istream& is) {
 		char label[100];
-		is.getline (label, 100, ',');
+		is.get (label, 100, ',');
 		is.ignore(1000, ',');
 		delete[] m_label;
 		m_label = new char [strlen(label) + 1];

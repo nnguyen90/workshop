@@ -13,7 +13,7 @@ namespace sdds
 		m_width = 0;
 		m_height = 0;
 	};
-	Rectangle::Rectangle(const char* label, double width, double height) : LblShape(label) {
+	Rectangle::Rectangle(const char* label, int width, int height) : LblShape(label) {
 		m_width = width;
 		m_height = height;
 		
@@ -22,7 +22,7 @@ namespace sdds
 			m_height = 0;
 		}
 	};
-	void Rectangle::draw(std::ostream& os) {
+	void Rectangle::draw(std::ostream& os) const{
 		if (m_width != 0 && m_height != 0) {
 			os << '+';
 			os.width(m_width - 2);
@@ -37,7 +37,7 @@ namespace sdds
 			os.unsetf(ios::left);
 			os << '|' << endl;
 
-			for (int i = 0; i < m_height - 4; i++) {
+			for (int i = 0; i < m_height - 3; i++) {
 				os << '|';
 				os.width(m_width - 2);
 				os.fill(' ');
@@ -59,6 +59,7 @@ namespace sdds
 		is.ignore(1000, '\n');
 	};
 	
+	Rectangle::~Rectangle() {};
 
 
 

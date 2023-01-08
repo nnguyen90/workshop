@@ -7,16 +7,15 @@ namespace sdds
 {
 	class Line: public LblShape
 	{
-		double m_length;
-
+		int m_length;
+	public:
 		Line();
-		Line(double length, char* label);
-		void draw(std::ostream& os);
+		Line(const char* label, int length);
+		void draw(std::ostream& os) const;
 		void getSpecs(std::istream& is);
 		~Line();
 	};
-	std::ostream& operator << (std::ostream& os, Shape& S);
-	std::istream& operator >> (std::istream& os, Shape& S);
+	
 
 }
 

@@ -6,16 +6,16 @@ using namespace std;
 namespace sdds
 {
 	Line::Line():LblShape() {
-		m_length = 0.0;
+		m_length = 0;
 	};
 
-	Line::Line(double length, char* label):LblShape(label) {
+	Line::Line( const char* label,int length):LblShape(label) {
 		m_length = length;
 	};
 
-	void Line::draw(std::ostream& os) {
+	void Line::draw(std::ostream& os)const {
 		if (m_length > 0 && label() != nullptr) {
-			os.width(40);
+			os.width(m_length);
 			os.fill('=');
 			os.setf(ios::left);
 			os << label();
@@ -26,6 +26,7 @@ namespace sdds
 	void Line::getSpecs(std::istream& is){
 		LblShape::getSpecs(is);
 		is >> m_length;
+		is.clear();
 		is.ignore(1000, '\n');
 	};
 	Line::~Line() {};

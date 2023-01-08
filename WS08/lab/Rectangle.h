@@ -8,12 +8,12 @@ namespace sdds
 {
 	class Rectangle :public LblShape
 	{
-		double m_width;
-		double m_height;
-
+		int m_width;
+		int m_height;
+	public:
 		Rectangle();
-		Rectangle(const char* label, double width, double height);
-		void draw(std::ostream& os);
+		Rectangle(const char* label, int width, int height);
+		void draw(std::ostream& os)const;
 		void getSpecs(std::istream& is);
 		~Rectangle();
 
