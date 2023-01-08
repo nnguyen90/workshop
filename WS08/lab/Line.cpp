@@ -14,7 +14,7 @@ namespace sdds
 	};
 
 	void Line::draw(std::ostream& os) {
-		if (m_length > 0.0 && label() != nullptr) {
+		if (m_length > 0 && label() != nullptr) {
 			os.width(40);
 			os.fill('=');
 			os.setf(ios::left);
