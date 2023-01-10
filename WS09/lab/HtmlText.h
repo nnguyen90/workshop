@@ -1,6 +1,7 @@
 #ifndef SDDS_HTMLTEXT_H
 #define SDDS_HTMLTEXT_H
 #include <iostream>
+#include "Text.h"
 
 
 namespace sdds
