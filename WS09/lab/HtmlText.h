@@ -15,7 +15,6 @@ namespace sdds
 		HtmlText(HtmlText& H);
 		HtmlText& operator = (const HtmlText& H);
 		~HtmlText();
-		std::istream& read(std::istream& is);
 		std::ostream& write(std::ostream& os) const;
 		
 	};
