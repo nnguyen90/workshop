@@ -8,8 +8,9 @@ Revision History
 -----------------------------------------------------------
 Date       Reason
 -----------------------------------------------------------*/
-#include <iostream>
-#include "HtmlText.h"
+#include <bits/stdc++.h>
+// #include <fstream>
+// #include "HtmlText.h"
 #include "Text.h"
 using namespace std;
 using namespace sdds;
@@ -26,11 +27,11 @@ void displayFile(const char* filename) {
 int main() {
    Text T;
    Text Y;
-   ifstream test("test.txt");
+   ifstream test("dcwrLittle.txt");
    test >> T;
    Y = T;
    Text Z = Y;
    T = Z;
-   cout << "*" << T << "*" << endl;
+   cout << T <<  endl;
    return 0;
 }
