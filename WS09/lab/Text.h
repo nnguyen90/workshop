@@ -1,5 +1,7 @@
 #ifndef SDDS_TEXT_H
 #define SDDS_TEXT_H
+#include <iostream>
+
 
 namespace sdds
 {
@@ -14,12 +16,12 @@ namespace sdds
 		Text& operator = (const Text& T);
 		~Text();
 		std::istream& read (std::istream& is);
-		std::ostream& write (std::ostream& os);
-		std::istream& operator >> (std::istream& is) const;
-		std::ostream& operator << (std::ostream& os);
-
+		virtual std::ostream& write (std::ostream& os) const;	
+		unsigned getFileLength(istream& is);
 	};
 
+	std::istream& operator >> (std::istream& is, Text& T);
+	std::ostream& operator << (std::ostream& os, Text& T);
 
 }
 
