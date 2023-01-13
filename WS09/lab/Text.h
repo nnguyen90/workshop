@@ -17,7 +17,7 @@ namespace sdds
 		~Text();
 		std::istream& read (std::istream& is);
 		virtual std::ostream& write (std::ostream& os) const;	
-		unsigned getFileLength(istream& is);
+		unsigned getFileLength(std::istream& is);
 	};
 
 	std::istream& operator >> (std::istream& is, Text& T);

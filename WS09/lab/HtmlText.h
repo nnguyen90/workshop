@@ -12,6 +12,7 @@ namespace sdds
 
 	public:
 		HtmlText();
+		HtmlText(char* title);
 		HtmlText(HtmlText& H);
 		HtmlText& operator = (const HtmlText& H);
 		~HtmlText();

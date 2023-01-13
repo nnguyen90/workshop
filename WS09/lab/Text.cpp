@@ -45,7 +45,7 @@ namespace sdds
 		this->m_content = new char [len + 1];
 		int i = 0;
 		while (!is.eof()) {
-			is >> m_content[i];
+			is >> std::noskipws >> m_content[i];
 			if (is.fail()) {
 				break;
 			}
@@ -67,7 +67,7 @@ namespace sdds
 	return os;
 	};
 	
-	unsigned Text::getFileLength(istream& is) {
+	unsigned Text::getFileLength(std::istream& is) {
 		unsigned len{};
 		if (is) {
 			// save the current read position
