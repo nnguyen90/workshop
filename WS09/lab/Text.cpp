@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <cstring>
 #include "Text.h"
@@ -82,12 +83,18 @@ namespace sdds
 		return len;
 	}
 
+	void Text::setContent(const Text& T) {
+		delete[] m_content;
+		this->m_content = new char[strlen(T.m_content) + 1];
+		strcpy(this->m_content, T.m_content);
+	};
+
 	std::istream& operator >> (std::istream& is, Text& T) {
 		return T.read(is);
 	};
 
 
-	std::ostream& operator << (std::ostream& os, Text& T) {
+	std::ostream& operator << (std::ostream& os, const Text& T) {
 		return T.write(os);
 	};
 }

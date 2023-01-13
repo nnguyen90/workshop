@@ -18,10 +18,11 @@ namespace sdds
 		std::istream& read (std::istream& is);
 		virtual std::ostream& write (std::ostream& os) const;	
 		unsigned getFileLength(std::istream& is);
+		void setContent(const Text& T);
 	};
 
 	std::istream& operator >> (std::istream& is, Text& T);
-	std::ostream& operator << (std::ostream& os, Text& T);
+	std::ostream& operator << (std::ostream& os, const Text& T);
 
 }
 

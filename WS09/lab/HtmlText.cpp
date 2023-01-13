@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <cstring>
 #include "HtmlText.h"
@@ -9,7 +10,7 @@ namespace sdds
 		m_title = nullptr;
 	};
 
-	HtmlText::HtmlText(char* title) {
+	HtmlText::HtmlText(const char* title) {
 		if (title != nullptr) {
 			strcpy (m_title, title);
 		}
@@ -18,7 +19,7 @@ namespace sdds
 	HtmlText::HtmlText(HtmlText& H) {
 		this->m_title = new char[strlen(H.m_title) + 1];
 		strcpy(this->m_title, H.m_title);
-	
+		this->setContent(H);
 	};
 
 	HtmlText& HtmlText::operator = (const HtmlText& H) {
@@ -26,6 +27,7 @@ namespace sdds
 			delete[] m_title;
 			this->m_title = new char[strlen(H.m_title) + 1];
 			strcpy(this->m_title, H.m_title);
+			this->setContent(H);
 		}
 		return *this;
 	};
