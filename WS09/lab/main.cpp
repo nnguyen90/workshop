@@ -18,7 +18,7 @@ void show(Text T)  {
    cout << "*" << T << "*" << endl;
 }
 void saveHtml(HtmlText H) {
-   ofstream("dcwrLittle.html")<<H;
+   ofstream("dcwrLittle.html") << H;
 }
 void displayFile(const char* filename) {
    cout << "File: " << filename << endl;

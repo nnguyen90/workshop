@@ -150,7 +150,11 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="dcwr.txt" />
+    <Text Include="dcwrLittle.txt" />
     <Text Include="test.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dcwrLittle.html" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

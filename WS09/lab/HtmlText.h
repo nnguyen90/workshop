@@ -8,12 +8,12 @@ namespace sdds
 {
 	class HtmlText: public Text
 	{
-		char* m_title;
+		char* m_title = nullptr;
 
 	public:
 		HtmlText();
 		HtmlText(const char* title);
-		HtmlText(HtmlText& H);
+		HtmlText(const HtmlText& H);
 		HtmlText& operator = (const HtmlText& H);
 		~HtmlText();
 		std::ostream& write(std::ostream& os) const;

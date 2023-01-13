@@ -12,11 +12,13 @@ namespace sdds
 
 	HtmlText::HtmlText(const char* title) {
 		if (title != nullptr) {
+			this->m_title = new char[strlen(title) + 1];
 			strcpy (m_title, title);
 		}
 	};
 
-	HtmlText::HtmlText(HtmlText& H) {
+	HtmlText::HtmlText(const HtmlText& H) {
+		//delete[] m_title;
 		this->m_title = new char[strlen(H.m_title) + 1];
 		strcpy(this->m_title, H.m_title);
 		this->setContent(H);
