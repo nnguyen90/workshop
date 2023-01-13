@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include "HtmlText.h"
 
 using namespace std;
@@ -48,6 +49,37 @@ namespace sdds
 		if (m_title != nullptr) {
 			os << "<h1>" << m_title << "</h1>\n";
 		}
+		int i = 0;
+		while((*this)[i] != '\0'){
+			char c = (*this)[i];
+			switch(c){
+				case ' ':
+					if(MS) os << "&nbsp;";
+					else{
+						MS = true;
+						os << " ";
+					}
+					break;
+				case '<':
+					os << "&lt;";
+					MS = false;
+					break;
+				case '>':
+					os << "&gt;";
+					MS = false;
+					break;
+				case '\n':
+					os << "<br />\n";
+					MS = false;
+					break;
+				default:
+					os << c;
+					MS = false;
+					break;
+			}
+			i++;
+		}
+		return os;
 	};
 
 
